@@ -198,8 +198,8 @@ async def get_blog_posts():
         raise HTTPException(status_code=500, detail="Error fetching blog posts")
 
 @api_router.post("/blog/posts", response_model=BlogPost)
-async def create_blog_post(input: BlogPostCreate):
-    """Create a new blog post"""
+async def create_blog_post(input: BlogPostCreate, username: str = Depends(verify_token)):
+    """Create a new blog post (requires authentication)"""
     try:
         # Parse tags from comma-separated string
         tags = [tag.strip() for tag in input.tags.split(',') if tag.strip()]
