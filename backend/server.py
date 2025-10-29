@@ -85,6 +85,111 @@ async def get_status_checks():
     
     return status_checks
 
+# Blog Post Routes
+@api_router.get("/blog/posts", response_model=List[BlogPost])
+async def get_blog_posts():
+    """Get all blog posts sorted by date (newest first)"""
+    try:
+        posts = await db.blog_posts.find({}, {"_id": 0}).sort("date", -1).to_list(1000)
+        
+        # Convert ISO string timestamps back to datetime objects
+        for post in posts:
+            if isinstance(post['date'], str):
+                post['date'] = datetime.fromisoformat(post['date'])
+        
+        return posts
+    except Exception as e:
+        logger.error(f"Error fetching blog posts: {e}")
+        raise HTTPException(status_code=500, detail="Error fetching blog posts")
+
+@api_router.post("/blog/posts", response_model=BlogPost)
+async def create_blog_post(input: BlogPostCreate):
+    """Create a new blog post"""
+    try:
+        # Parse tags from comma-separated string
+        tags = [tag.strip() for tag in input.tags.split(',') if tag.strip()]
+        
+        # Create blog post object
+        post_data = {
+            "title": input.title,
+            "content": input.content,
+            "tags": tags
+        }
+        post = BlogPost(**post_data)
+        
+        # Convert to dict and serialize datetime to ISO string for MongoDB
+        doc = post.model_dump()
+        doc['date'] = doc['date'].isoformat()
+        
+        # Insert into database
+        await db.blog_posts.insert_one(doc)
+        
+        logger.info(f"Created blog post: {post.id}")
+        return post
+    except Exception as e:
+        logger.error(f"Error creating blog post: {e}")
+        raise HTTPException(status_code=500, detail="Error creating blog post")
+
+@api_router.put("/blog/posts/{post_id}", response_model=BlogPost)
+async def update_blog_post(post_id: str, input: BlogPostUpdate):
+    """Update an existing blog post"""
+    try:
+        # Check if post exists
+        existing_post = await db.blog_posts.find_one({"id": post_id}, {"_id": 0})
+        if not existing_post:
+            raise HTTPException(status_code=404, detail="Blog post not found")
+        
+        # Parse tags from comma-separated string
+        tags = [tag.strip() for tag in input.tags.split(',') if tag.strip()]
+        
+        # Update post data (preserve original date and id)
+        updated_data = {
+            "title": input.title,
+            "content": input.content,
+            "tags": tags
+        }
+        
+        # Update in database
+        await db.blog_posts.update_one(
+            {"id": post_id},
+            {"$set": updated_data}
+        )
+        
+        # Fetch and return updated post
+        updated_post = await db.blog_posts.find_one({"id": post_id}, {"_id": 0})
+        
+        # Convert ISO string timestamp back to datetime object
+        if isinstance(updated_post['date'], str):
+            updated_post['date'] = datetime.fromisoformat(updated_post['date'])
+        
+        logger.info(f"Updated blog post: {post_id}")
+        return BlogPost(**updated_post)
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error updating blog post: {e}")
+        raise HTTPException(status_code=500, detail="Error updating blog post")
+
+@api_router.delete("/blog/posts/{post_id}")
+async def delete_blog_post(post_id: str):
+    """Delete a blog post"""
+    try:
+        # Check if post exists
+        existing_post = await db.blog_posts.find_one({"id": post_id}, {"_id": 0})
+        if not existing_post:
+            raise HTTPException(status_code=404, detail="Blog post not found")
+        
+        # Delete from database
+        await db.blog_posts.delete_one({"id": post_id})
+        
+        logger.info(f"Deleted blog post: {post_id}")
+        return {"message": "Blog post deleted successfully", "id": post_id}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error deleting blog post: {e}")
+        raise HTTPException(status_code=500, detail="Error deleting blog post")
+
 # Include the router in the main app
 app.include_router(api_router)
 
