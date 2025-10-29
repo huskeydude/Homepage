@@ -139,6 +139,47 @@ async def get_status_checks():
     
     return status_checks
 
+# Authentication Routes
+@api_router.post("/auth/login", response_model=Token)
+async def login(login_data: LoginRequest):
+    """Admin login endpoint"""
+    if not verify_password(login_data.password, login_data.username):
+        raise HTTPException(status_code=401, detail="Incorrect username or password")
+    
+    access_token = create_access_token(data={"sub": login_data.username})
+    logger.info(f"Admin user logged in: {login_data.username}")
+    return {"access_token": access_token, "token_type": "bearer"}
+
+@api_router.get("/auth/verify")
+async def verify_auth(username: str = Depends(verify_token)):
+    """Verify if token is valid"""
+    return {"username": username, "authenticated": True}
+
+# Image Upload Route
+@api_router.post("/upload")
+async def upload_image(
+    file: UploadFile = File(...),
+    username: str = Depends(verify_token)
+):
+    """Upload image for blog posts (requires authentication)"""
+    try:
+        # Generate unique filename
+        file_extension = Path(file.filename).suffix
+        unique_filename = f"{uuid.uuid4()}{file_extension}"
+        file_path = UPLOAD_DIR / unique_filename
+        
+        # Save file
+        with open(file_path, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+        
+        # Return URL path
+        image_url = f"/uploads/{unique_filename}"
+        logger.info(f"Image uploaded: {unique_filename}")
+        return {"url": image_url, "filename": unique_filename}
+    except Exception as e:
+        logger.error(f"Error uploading image: {e}")
+        raise HTTPException(status_code=500, detail="Error uploading image")
+
 # Blog Post Routes
 @api_router.get("/blog/posts", response_model=List[BlogPost])
 async def get_blog_posts():
