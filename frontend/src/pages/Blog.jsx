@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Plus, Calendar, Tag, Edit2, Trash2 } from 'lucide-react';
 import { Button } from '../components/ui/button';
@@ -6,13 +6,17 @@ import { Card } from '../components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../components/ui/dialog';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
-import { mockBlogPosts } from '../mock/mockData';
 import { useToast } from '../hooks/use-toast';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const Blog = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
-  const [posts, setPosts] = useState(mockBlogPosts);
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingPost, setEditingPost] = useState(null);
   const [formData, setFormData] = useState({
@@ -20,6 +24,28 @@ const Blog = () => {
     content: '',
     tags: ''
   });
+
+  // Fetch posts on component mount
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  const fetchPosts = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(`${API}/blog/posts`);
+      setPosts(response.data);
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+      toast({ 
+        title: 'Error loading posts', 
+        description: 'Could not fetch blog posts',
+        variant: 'destructive'
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleOpenDialog = (post = null) => {
     if (post) {
