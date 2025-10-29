@@ -24,6 +24,19 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
+# Create uploads directory
+UPLOAD_DIR = ROOT_DIR / "uploads"
+UPLOAD_DIR.mkdir(exist_ok=True)
+
+# Authentication setup
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+security = HTTPBearer()
+
+JWT_SECRET = os.environ.get('JWT_SECRET_KEY', 'default-secret-key')
+JWT_ALGORITHM = os.environ.get('JWT_ALGORITHM', 'HS256')
+ADMIN_USERNAME = os.environ.get('ADMIN_USERNAME', 'admin')
+ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD', 'password123')
+
 # Create the main app without a prefix
 app = FastAPI()
 
