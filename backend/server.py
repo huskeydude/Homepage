@@ -226,8 +226,8 @@ async def create_blog_post(input: BlogPostCreate, username: str = Depends(verify
         raise HTTPException(status_code=500, detail="Error creating blog post")
 
 @api_router.put("/blog/posts/{post_id}", response_model=BlogPost)
-async def update_blog_post(post_id: str, input: BlogPostUpdate):
-    """Update an existing blog post"""
+async def update_blog_post(post_id: str, input: BlogPostUpdate, username: str = Depends(verify_token)):
+    """Update an existing blog post (requires authentication)"""
     try:
         # Check if post exists
         existing_post = await db.blog_posts.find_one({"id": post_id}, {"_id": 0})
