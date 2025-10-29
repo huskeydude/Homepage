@@ -17,6 +17,69 @@ code {
         source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+/* Quill Editor Styles */
+.ql-container {
+    font-size: 16px;
+}
+
+.ql-editor {
+    min-height: 300px;
+    background-color: rgb(2 6 23);
+    color: rgb(203 213 225);
+}
+
+.ql-editor.ql-blank::before {
+    color: rgb(100 116 139);
+}
+
+.ql-snow .ql-stroke {
+    stroke: rgb(148 163 184);
+}
+
+.ql-snow .ql-fill {
+    fill: rgb(148 163 184);
+}
+
+.ql-snow .ql-picker-label {
+    color: rgb(148 163 184);
+}
+
+.ql-toolbar.ql-snow {
+    background-color: rgb(15 23 42);
+    border: 1px solid rgb(30 41 59);
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.ql-container.ql-snow {
+    border: 1px solid rgb(30 41 59);
+    border-top: none;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.ql-snow.ql-toolbar button:hover,
+.ql-snow .ql-toolbar button:hover {
+    color: white;
+}
+
+.ql-snow.ql-toolbar button:hover .ql-stroke,
+.ql-snow .ql-toolbar button:hover .ql-stroke {
+    stroke: white;
+}
+
+.ql-snow.ql-toolbar button:hover .ql-fill,
+.ql-snow .ql-toolbar button:hover .ql-fill {
+    fill: white;
+}
+
+.ql-snow .ql-picker-options {
+    background-color: rgb(15 23 42);
+    border: 1px solid rgb(30 41 59);
+}
+
+.ql-snow .ql-picker-item:hover {
+    color: white;
+}
+
 @layer base {
     :root {
         --background: 0 0% 100%;
