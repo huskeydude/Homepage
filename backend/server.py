@@ -288,6 +288,9 @@ async def delete_blog_post(post_id: str, username: str = Depends(verify_token)):
 # Include the router in the main app
 app.include_router(api_router)
 
+# Serve uploaded images as static files
+app.mount("/uploads", StaticFiles(directory=str(UPLOAD_DIR)), name="uploads")
+
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
