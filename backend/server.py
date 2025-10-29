@@ -266,8 +266,8 @@ async def update_blog_post(post_id: str, input: BlogPostUpdate, username: str = 
         raise HTTPException(status_code=500, detail="Error updating blog post")
 
 @api_router.delete("/blog/posts/{post_id}")
-async def delete_blog_post(post_id: str):
-    """Delete a blog post"""
+async def delete_blog_post(post_id: str, username: str = Depends(verify_token)):
+    """Delete a blog post (requires authentication)"""
     try:
         # Check if post exists
         existing_post = await db.blog_posts.find_one({"id": post_id}, {"_id": 0})
