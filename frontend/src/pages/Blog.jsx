@@ -62,36 +62,47 @@ const Blog = () => {
     setIsDialogOpen(true);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (editingPost) {
-      // Edit existing post
-      setPosts(posts.map(p => 
-        p.id === editingPost.id 
-          ? { ...p, ...formData, tags: formData.tags.split(',').map(t => t.trim()) }
-          : p
-      ));
-      toast({ title: 'Post updated successfully!' });
-    } else {
-      // Add new post
-      const newPost = {
-        id: Date.now().toString(),
-        ...formData,
-        tags: formData.tags.split(',').map(t => t.trim()),
-        date: new Date().toISOString()
-      };
-      setPosts([newPost, ...posts]);
-      toast({ title: 'Post created successfully!' });
+    try {
+      if (editingPost) {
+        // Edit existing post
+        await axios.put(`${API}/blog/posts/${editingPost.id}`, formData);
+        toast({ title: 'Post updated successfully!' });
+      } else {
+        // Add new post
+        await axios.post(`${API}/blog/posts`, formData);
+        toast({ title: 'Post created successfully!' });
+      }
+      
+      // Refresh posts
+      await fetchPosts();
+      setIsDialogOpen(false);
+      setFormData({ title: '', content: '', tags: '' });
+    } catch (error) {
+      console.error('Error saving post:', error);
+      toast({ 
+        title: 'Error saving post', 
+        description: 'Could not save blog post',
+        variant: 'destructive'
+      });
     }
-    
-    setIsDialogOpen(false);
-    setFormData({ title: '', content: '', tags: '' });
   };
 
-  const handleDelete = (id) => {
-    setPosts(posts.filter(p => p.id !== id));
-    toast({ title: 'Post deleted successfully!' });
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`${API}/blog/posts/${id}`);
+      toast({ title: 'Post deleted successfully!' });
+      await fetchPosts();
+    } catch (error) {
+      console.error('Error deleting post:', error);
+      toast({ 
+        title: 'Error deleting post', 
+        description: 'Could not delete blog post',
+        variant: 'destructive'
+      });
+    }
   };
 
   const formatDate = (dateString) => {
