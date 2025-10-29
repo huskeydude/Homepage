@@ -139,7 +139,11 @@ const Blog = () => {
 
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-6 py-12">
-        {posts.length === 0 ? (
+        {loading ? (
+          <div className="flex items-center justify-center py-20">
+            <div className="text-slate-400">Loading posts...</div>
+          </div>
+        ) : posts.length === 0 ? (
           <Card className="bg-slate-900/50 border-slate-800 p-12 text-center">
             <BookOpen className="w-16 h-16 text-slate-600 mx-auto mb-4" />
             <h3 className="text-xl text-slate-400 mb-2">No posts yet</h3>
