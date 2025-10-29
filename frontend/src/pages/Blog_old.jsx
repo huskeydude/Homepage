@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Plus, Calendar, Tag, Edit2, Trash2, LogIn, LogOut } from 'lucide-react';
+import { ArrowLeft, Plus, Calendar, Tag, Edit2, Trash2 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../components/ui/dialog';
 import { Input } from '../components/ui/input';
-import RichTextEditor from '../components/RichTextEditor';
-import LoginDialog from '../components/LoginDialog';
+import { Textarea } from '../components/ui/textarea';
 import { useToast } from '../hooks/use-toast';
-import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -17,11 +15,9 @@ const API = `${BACKEND_URL}/api`;
 const Blog = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
-  const { isAuthenticated, logout, getAuthHeader } = useAuth();
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [editingPost, setEditingPost] = useState(null);
   const [formData, setFormData] = useState({
     title: '',
@@ -52,11 +48,6 @@ const Blog = () => {
   };
 
   const handleOpenDialog = (post = null) => {
-    if (!isAuthenticated) {
-      setIsLoginOpen(true);
-      return;
-    }
-
     if (post) {
       setEditingPost(post);
       setFormData({
@@ -77,19 +68,11 @@ const Blog = () => {
     try {
       if (editingPost) {
         // Edit existing post
-        await axios.put(
-          `${API}/blog/posts/${editingPost.id}`,
-          formData,
-          { headers: getAuthHeader() }
-        );
+        await axios.put(`${API}/blog/posts/${editingPost.id}`, formData);
         toast({ title: 'Post updated successfully!' });
       } else {
         // Add new post
-        await axios.post(
-          `${API}/blog/posts`,
-          formData,
-          { headers: getAuthHeader() }
-        );
+        await axios.post(`${API}/blog/posts`, formData);
         toast({ title: 'Post created successfully!' });
       }
       
@@ -101,27 +84,22 @@ const Blog = () => {
       console.error('Error saving post:', error);
       toast({ 
         title: 'Error saving post', 
-        description: error.response?.data?.detail || 'Could not save blog post',
+        description: 'Could not save blog post',
         variant: 'destructive'
       });
     }
   };
 
   const handleDelete = async (id) => {
-    if (!isAuthenticated) {
-      setIsLoginOpen(true);
-      return;
-    }
-
     try {
-      await axios.delete(`${API}/blog/posts/${id}`, { headers: getAuthHeader() });
+      await axios.delete(`${API}/blog/posts/${id}`);
       toast({ title: 'Post deleted successfully!' });
       await fetchPosts();
     } catch (error) {
       console.error('Error deleting post:', error);
       toast({ 
         title: 'Error deleting post', 
-        description: error.response?.data?.detail || 'Could not delete blog post',
+        description: 'Could not delete blog post',
         variant: 'destructive'
       });
     }
@@ -149,35 +127,13 @@ const Blog = () => {
             Back to Home
           </Button>
           <h1 className="text-xl font-semibold text-white">Blog & Updates</h1>
-          <div className="flex items-center gap-2">
-            {isAuthenticated ? (
-              <>
-                <Button
-                  onClick={() => handleOpenDialog()}
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
-                >
-                  <Plus className="w-4 h-4 mr-2" />
-                  New Post
-                </Button>
-                <Button
-                  variant="ghost"
-                  onClick={logout}
-                  className="text-slate-400 hover:text-white"
-                >
-                  <LogOut className="w-4 h-4" />
-                </Button>
-              </>
-            ) : (
-              <Button
-                variant="ghost"
-                onClick={() => setIsLoginOpen(true)}
-                className="text-slate-400 hover:text-white"
-              >
-                <LogIn className="w-4 h-4 mr-2" />
-                Admin Login
-              </Button>
-            )}
-          </div>
+          <Button
+            onClick={() => handleOpenDialog()}
+            className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
+          >
+            <Plus className="w-4 h-4 mr-2" />
+            New Post
+          </Button>
         </div>
       </div>
 
@@ -192,15 +148,13 @@ const Blog = () => {
             <BookOpen className="w-16 h-16 text-slate-600 mx-auto mb-4" />
             <h3 className="text-xl text-slate-400 mb-2">No posts yet</h3>
             <p className="text-slate-500 mb-6">Start sharing your updates and projects</p>
-            {isAuthenticated && (
-              <Button
-                onClick={() => handleOpenDialog()}
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
-              >
-                <Plus className="w-4 h-4 mr-2" />
-                Create First Post
-              </Button>
-            )}
+            <Button
+              onClick={() => handleOpenDialog()}
+              className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
+            >
+              <Plus className="w-4 h-4 mr-2" />
+              Create First Post
+            </Button>
           </Card>
         ) : (
           <div className="space-y-6">
@@ -225,33 +179,29 @@ const Blog = () => {
                         </div>
                       </div>
                     </div>
-                    {isAuthenticated && (
-                      <div className="flex gap-2">
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => handleOpenDialog(post)}
-                          className="text-slate-400 hover:text-white"
-                        >
-                          <Edit2 className="w-4 h-4" />
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => handleDelete(post.id)}
-                          className="text-slate-400 hover:text-red-500"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    )}
+                    <div className="flex gap-2">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => handleOpenDialog(post)}
+                        className="text-slate-400 hover:text-white"
+                      >
+                        <Edit2 className="w-4 h-4" />
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => handleDelete(post.id)}
+                        className="text-slate-400 hover:text-red-500"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </Button>
+                    </div>
                   </div>
                   
-                  {/* Render HTML content */}
-                  <div 
-                    className="text-slate-300 leading-relaxed mb-4 prose prose-invert max-w-none"
-                    dangerouslySetInnerHTML={{ __html: post.content }}
-                  />
+                  <p className="text-slate-300 leading-relaxed mb-4">
+                    {post.content}
+                  </p>
                   
                   <div className="flex flex-wrap gap-2">
                     {post.tags.map((tag, index) => (
@@ -271,12 +221,9 @@ const Blog = () => {
         )}
       </div>
 
-      {/* Login Dialog */}
-      <LoginDialog open={isLoginOpen} onOpenChange={setIsLoginOpen} />
-
       {/* Add/Edit Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="bg-slate-900 border-slate-800 text-white max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="bg-slate-900 border-slate-800 text-white max-w-2xl">
           <DialogHeader>
             <DialogTitle>{editingPost ? 'Edit Post' : 'Create New Post'}</DialogTitle>
           </DialogHeader>
@@ -293,9 +240,13 @@ const Blog = () => {
             </div>
             <div>
               <label className="text-sm text-slate-400 mb-2 block">Content</label>
-              <RichTextEditor
+              <Textarea
                 value={formData.content}
-                onChange={(content) => setFormData({ ...formData, content })}
+                onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                placeholder="Write your post content..."
+                required
+                rows={6}
+                className="bg-slate-950 border-slate-800 text-white"
               />
             </div>
             <div>
