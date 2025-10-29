@@ -82,6 +82,34 @@ class BlogPostUpdate(BaseModel):
     content: str
     tags: str  # Comma-separated string
 
+# Authentication helper functions
+def verify_password(plain_password: str, username: str) -> bool:
+    """Verify password against environment variable"""
+    return plain_password == ADMIN_PASSWORD and username == ADMIN_USERNAME
+
+def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
+    """Create JWT access token"""
+    to_encode = data.copy()
+    if expires_delta:
+        expire = datetime.utcnow() + expires_delta
+    else:
+        expire = datetime.utcnow() + timedelta(hours=24)
+    to_encode.update({"exp": expire})
+    encoded_jwt = jwt.encode(to_encode, JWT_SECRET, algorithm=JWT_ALGORITHM)
+    return encoded_jwt
+
+async def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
+    """Verify JWT token for protected routes"""
+    try:
+        token = credentials.credentials
+        payload = jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM])
+        username: str = payload.get("sub")
+        if username is None or username != ADMIN_USERNAME:
+            raise HTTPException(status_code=401, detail="Invalid authentication credentials")
+        return username
+    except JWTError:
+        raise HTTPException(status_code=401, detail="Invalid authentication credentials")
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
