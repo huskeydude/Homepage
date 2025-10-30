@@ -172,8 +172,8 @@ async def upload_image(
         with open(file_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
         
-        # Return URL path
-        image_url = f"/uploads/{unique_filename}"
+        # Return URL path - include /api prefix for ingress routing
+        image_url = f"/api/uploads/{unique_filename}"
         logger.info(f"Image uploaded: {unique_filename}")
         return {"url": image_url, "filename": unique_filename}
     except Exception as e:
