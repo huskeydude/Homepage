@@ -6,9 +6,44 @@ import { Card } from '../components/ui/card';
 const Home = () => {
   const navigate = useNavigate();
 
+  // Custom fancy icon components
+  const ResumeIcon = () => (
+    <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+      <line x1="9" y1="7" x2="15" y2="7"/>
+      <line x1="9" y1="11" x2="15" y2="11"/>
+      <line x1="9" y1="15" x2="13" y2="15"/>
+      <circle cx="7.5" cy="7" r="0.5" fill="currentColor"/>
+      <circle cx="7.5" cy="11" r="0.5" fill="currentColor"/>
+      <circle cx="7.5" cy="15" r="0.5" fill="currentColor"/>
+    </svg>
+  );
+
+  const TechIcon = () => (
+    <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M8 2L4 6l4 4"/>
+      <path d="M16 2l4 4-4 4"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <path d="M8 22l-4-4 4-4"/>
+      <path d="M16 22l4-4-4-4"/>
+    </svg>
+  );
+
+  const BlogIcon = () => (
+    <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M12 21c-1.657 0-3-1.343-3-3V6c0-1.657 1.343-3 3-3s3 1.343 3 3v12c0 1.657-1.343 3-3 3z"/>
+      <path d="M4 17h16"/>
+      <path d="M4 13h16"/>
+      <path d="M4 9h16"/>
+      <circle cx="7" cy="9" r="1" fill="currentColor"/>
+      <circle cx="7" cy="13" r="1" fill="currentColor"/>
+      <circle cx="7" cy="17" r="1" fill="currentColor"/>
+    </svg>
+  );
+
   const tabs = [
     {
-      icon: FileText,
+      icon: ResumeIcon,
       title: 'Resume',
       description: 'View my professional experience',
       path: '/resume',
@@ -16,7 +51,7 @@ const Home = () => {
       glow: 'group-hover:shadow-cyan-500/50'
     },
     {
-      icon: Globe,
+      icon: TechIcon,
       title: 'NorthTech',
       description: 'IT Solutions Business',
       path: '/northtech',
@@ -24,7 +59,7 @@ const Home = () => {
       glow: 'group-hover:shadow-teal-500/50'
     },
     {
-      icon: BookOpen,
+      icon: BlogIcon,
       title: 'Blog',
       description: 'Latest projects and thoughts',
       path: '/blog',
