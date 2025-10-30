@@ -141,3 +141,54 @@ code {
         opacity: 1;
     }
 }
+
+@keyframes shooting-star-1 {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(1000px, 600px);
+        opacity: 0;
+    }
+}
+
+@keyframes shooting-star-2 {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(1200px, 500px);
+        opacity: 0;
+    }
+}
+
+@keyframes shooting-star-3 {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(900px, 400px);
+        opacity: 0;
+    }
+}
+
+@keyframes galaxy-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
