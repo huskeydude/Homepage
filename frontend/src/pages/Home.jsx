@@ -108,8 +108,26 @@ const Home = () => {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-12 text-slate-500 text-sm">
-          <p>Built with creativity & passion</p>
+        <div className="text-center mt-12 space-y-4">
+          {/* Socials */}
+          <div className="flex items-center justify-center gap-3">
+            {socials.map((social, index) => (
+              <a
+                key={index}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-lg text-slate-400 hover:text-white transition-all duration-300 group"
+                title={social.name}
+              >
+                <span className="group-hover:scale-110 transition-transform duration-300">
+                  {social.icon}
+                </span>
+                <span className="text-sm font-medium">{social.name}</span>
+              </a>
+            ))}
+          </div>
+          <p className="text-slate-500 text-sm">Built with creativity & passion</p>
         </div>
       </div>
     </div>
