@@ -74,7 +74,7 @@ const Home = () => {
                 {/* Gradient overlay on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${tab.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
                 
-                <div className="p-8 relative z-10">
+                <div className="p-8 relative z-10 flex flex-col items-center text-center">
                   <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${tab.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <Icon className="w-7 h-7 text-white" />
                   </div>
