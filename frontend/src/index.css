@@ -193,6 +193,24 @@ code {
     }
 }
 
+@keyframes galaxy-orbit {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes galaxy-orbit-reverse {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
 /* Blog Post Image Styling */
 .prose img,
 .blog-image {
