@@ -51,16 +51,47 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen relative flex items-center justify-center p-6">
-      {/* Space Background with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1570556319136-3cfc640168a4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwxfHxzcGFjZSUyMG5lYnVsYXxlbnwwfHx8YmxhY2t8MTc2MTc5NjIyNnww&ixlib=rb-4.1.0&q=85)'
-        }}
-      >
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/60"></div>
+    <div className="min-h-screen relative flex items-center justify-center p-6 overflow-hidden">
+      {/* Animated Space Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-purple-950 to-black">
+        {/* Animated stars layer 1 */}
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(2px 2px at 20px 30px, white, transparent),
+                           radial-gradient(2px 2px at 60px 70px, white, transparent),
+                           radial-gradient(1px 1px at 50px 50px, white, transparent),
+                           radial-gradient(1px 1px at 130px 80px, white, transparent),
+                           radial-gradient(2px 2px at 90px 10px, white, transparent)`,
+          backgroundSize: '200px 200px',
+          animation: 'space-move-1 80s linear infinite'
+        }}></div>
+        
+        {/* Animated stars layer 2 */}
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(1px 1px at 40px 60px, white, transparent),
+                           radial-gradient(1px 1px at 110px 90px, white, transparent),
+                           radial-gradient(2px 2px at 150px 30px, white, transparent),
+                           radial-gradient(1px 1px at 70px 120px, white, transparent),
+                           radial-gradient(1px 1px at 20px 100px, white, transparent)`,
+          backgroundSize: '250px 250px',
+          animation: 'space-move-2 100s linear infinite'
+        }}></div>
+        
+        {/* Twinkling stars */}
+        <div className="absolute inset-0 opacity-50" style={{
+          backgroundImage: `radial-gradient(1px 1px at 10% 20%, white, transparent),
+                           radial-gradient(1px 1px at 80% 80%, white, transparent),
+                           radial-gradient(1px 1px at 50% 50%, white, transparent),
+                           radial-gradient(1px 1px at 90% 10%, white, transparent),
+                           radial-gradient(2px 2px at 30% 70%, cyan, transparent),
+                           radial-gradient(2px 2px at 70% 30%, purple, transparent)`,
+          backgroundSize: '200% 200%',
+          animation: 'twinkle 4s ease-in-out infinite'
+        }}></div>
+        
+        {/* Nebula glow effects */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl" style={{ animation: 'pulse 8s ease-in-out infinite' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 -translate-x-1/2 -translate-y-1/2 bg-indigo-600/10 rounded-full blur-3xl" style={{ animation: 'pulse 6s ease-in-out infinite' }}></div>
       </div>
       
       <div className="max-w-4xl w-full relative z-10">
