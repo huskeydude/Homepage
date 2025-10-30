@@ -12,21 +12,24 @@ const Home = () => {
       title: 'Resume',
       description: 'View my professional experience',
       path: '/resume',
-      gradient: 'from-orange-500 to-red-500'
+      gradient: 'from-cyan-400 to-blue-600',
+      glow: 'group-hover:shadow-cyan-500/50'
     },
     {
       icon: Globe,
       title: 'North Tech IT',
       description: 'Visit my main website',
       path: '/northtech',
-      gradient: 'from-cyan-500 to-blue-500'
+      gradient: 'from-teal-400 to-purple-600',
+      glow: 'group-hover:shadow-teal-500/50'
     },
     {
       icon: BookOpen,
       title: 'Blog & Updates',
       description: 'Latest projects and thoughts',
       path: '/blog',
-      gradient: 'from-purple-500 to-pink-500'
+      gradient: 'from-pink-400 to-purple-600',
+      glow: 'group-hover:shadow-pink-500/50'
     }
   ];
 
