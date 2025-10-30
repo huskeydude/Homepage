@@ -57,6 +57,7 @@ const Home = () => {
         <div className="text-center mb-12 animate-fade-in">
           <div className="relative inline-block mb-6">
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-orange-500 rounded-full blur-2xl opacity-30 animate-pulse"></div>
+            {/* Avatar supports PNG, JPG, GIF, and other image formats */}
             <img
               src="https://cloud.yeksuh.xyz/image/placeholder.png"
               alt="Yeksuh San"
