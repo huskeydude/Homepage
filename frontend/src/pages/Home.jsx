@@ -388,6 +388,9 @@ const Home = () => {
           <p className="text-slate-500 text-sm">Built with creativity & passion</p>
         </div>
       </div>
+      
+      {/* Visitor Detection Easter Egg */}
+      <VisitorGreeting />
     </div>
   );
 };
