@@ -9,6 +9,7 @@ import RichTextEditor from '../components/RichTextEditor';
 import LoginDialog from '../components/LoginDialog';
 import { useToast } from '../hooks/use-toast';
 import { useAuth } from '../context/AuthContext';
+import SpaceBackground from '../components/SpaceBackground';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
