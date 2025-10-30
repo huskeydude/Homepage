@@ -55,8 +55,8 @@ const Home = () => {
 
   return (
     <div className="min-h-screen relative flex items-center justify-center p-6 overflow-hidden">
-      {/* Animated Space Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-purple-950 to-black">
+      {/* Animated Helix Nebula Space Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-purple-950 to-teal-950">
         {/* Animated stars layer 1 */}
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(2px 2px at 20px 30px, white, transparent),
@@ -79,22 +79,25 @@ const Home = () => {
           animation: 'space-move-2 100s linear infinite'
         }}></div>
         
-        {/* Twinkling stars */}
+        {/* Twinkling stars with nebula colors */}
         <div className="absolute inset-0 opacity-50" style={{
           backgroundImage: `radial-gradient(1px 1px at 10% 20%, white, transparent),
                            radial-gradient(1px 1px at 80% 80%, white, transparent),
                            radial-gradient(1px 1px at 50% 50%, white, transparent),
                            radial-gradient(1px 1px at 90% 10%, white, transparent),
                            radial-gradient(2px 2px at 30% 70%, cyan, transparent),
-                           radial-gradient(2px 2px at 70% 30%, purple, transparent)`,
+                           radial-gradient(2px 2px at 70% 30%, #ec4899, transparent),
+                           radial-gradient(2px 2px at 60% 40%, #14b8a6, transparent)`,
           backgroundSize: '200% 200%',
           animation: 'twinkle 4s ease-in-out infinite'
         }}></div>
         
-        {/* Nebula glow effects */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl" style={{ animation: 'pulse 8s ease-in-out infinite' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 -translate-x-1/2 -translate-y-1/2 bg-indigo-600/10 rounded-full blur-3xl" style={{ animation: 'pulse 6s ease-in-out infinite' }}></div>
+        {/* Helix Nebula glow effects - blues, teals, purples, pinks */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl" style={{ animation: 'pulse 8s ease-in-out infinite' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 -translate-x-1/2 -translate-y-1/2 bg-blue-600/15 rounded-full blur-3xl" style={{ animation: 'pulse 6s ease-in-out infinite' }}></div>
+        <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-purple-500/15 rounded-full blur-3xl" style={{ animation: 'pulse 7s ease-in-out infinite' }}></div>
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-teal-500/15 rounded-full blur-3xl" style={{ animation: 'pulse 9s ease-in-out infinite' }}></div>
       </div>
       
       <div className="max-w-4xl w-full relative z-10">
