@@ -204,12 +204,23 @@ const Home = () => {
               <div className="absolute top-[50%] left-0 right-0 h-[8%] bg-orange-400/25"></div>
               <div className="absolute top-[68%] left-0 right-0 h-[6%] bg-amber-300/30"></div>
             </div>
-            {/* Main ring system - thicker and more visible rings */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-6" style={{ transform: 'translate(-50%, -50%) rotateX(75deg)' }}>
-              <div className="absolute inset-0 border-[3px] border-amber-300/70 rounded-full"></div>
-              <div className="absolute inset-[4px] border-[2px] border-orange-300/60 rounded-full"></div>
-              <div className="absolute inset-[7px] border-[2px] border-amber-200/50 rounded-full"></div>
-              <div className="absolute inset-[10px] border-[2px] border-orange-200/40 rounded-full"></div>
+            {/* Main ring system - enhanced with box-shadow for better visibility */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-8" style={{ transform: 'translate(-50%, -50%) rotateX(75deg)' }}>
+              {/* Outer ring with glow */}
+              <div className="absolute inset-0 rounded-full" style={{
+                border: '3px solid rgba(251, 191, 36, 0.6)',
+                boxShadow: '0 0 8px 2px rgba(251, 191, 36, 0.4), inset 0 0 8px 1px rgba(251, 191, 36, 0.3)'
+              }}></div>
+              {/* Middle ring */}
+              <div className="absolute inset-[5px] rounded-full" style={{
+                border: '2px solid rgba(253, 186, 116, 0.5)',
+                boxShadow: '0 0 6px 1px rgba(253, 186, 116, 0.3)'
+              }}></div>
+              {/* Inner ring */}
+              <div className="absolute inset-[9px] rounded-full" style={{
+                border: '2px solid rgba(254, 215, 170, 0.4)',
+                boxShadow: '0 0 4px 1px rgba(254, 215, 170, 0.2)'
+              }}></div>
             </div>
             {/* Ring shadow on planet */}
             <div className="absolute inset-0 rounded-full overflow-hidden">
