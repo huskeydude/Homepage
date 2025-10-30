@@ -47,20 +47,40 @@ const SpaceBackground = () => {
         <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-purple-500/15 rounded-full blur-3xl" style={{ animation: 'pulse 7s ease-in-out infinite' }}></div>
         <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-teal-500/15 rounded-full blur-3xl" style={{ animation: 'pulse 9s ease-in-out infinite' }}></div>
         
-        {/* Shooting Stars - Slower rate */}
-        <div className="absolute top-1/4 left-0 w-1 h-1 bg-white rounded-full" style={{ 
+        {/* Shooting Stars - More varied positions and paths */}
+        <div className="absolute top-[15%] left-0 w-1 h-1 bg-white rounded-full" style={{ 
           boxShadow: '0 0 6px 2px rgba(255,255,255,0.8), 0 0 10px 4px rgba(0,255,255,0.5)',
           animation: 'shooting-star-1 8s linear infinite'
         }}></div>
-        <div className="absolute top-1/2 left-0 w-1 h-1 bg-white rounded-full" style={{ 
+        <div className="absolute top-[45%] left-0 w-1 h-1 bg-white rounded-full" style={{ 
           boxShadow: '0 0 6px 2px rgba(255,255,255,0.8), 0 0 10px 4px rgba(255,105,180,0.5)',
           animation: 'shooting-star-2 12s linear infinite',
           animationDelay: '4s'
         }}></div>
-        <div className="absolute top-3/4 left-0 w-1 h-1 bg-white rounded-full" style={{ 
+        <div className="absolute top-[75%] left-0 w-1 h-1 bg-white rounded-full" style={{ 
           boxShadow: '0 0 6px 2px rgba(255,255,255,0.8), 0 0 10px 4px rgba(0,255,200,0.5)',
           animation: 'shooting-star-3 10s linear infinite',
           animationDelay: '2s'
+        }}></div>
+        <div className="absolute top-[5%] right-0 w-1 h-1 bg-white rounded-full" style={{ 
+          boxShadow: '0 0 6px 2px rgba(255,255,255,0.8), 0 0 10px 4px rgba(147,197,253,0.5)',
+          animation: 'shooting-star-right-1 9s linear infinite',
+          animationDelay: '3s'
+        }}></div>
+        <div className="absolute top-[55%] right-0 w-1 h-1 bg-white rounded-full" style={{ 
+          boxShadow: '0 0 6px 2px rgba(255,255,255,0.8), 0 0 10px 4px rgba(196,181,253,0.5)',
+          animation: 'shooting-star-right-2 11s linear infinite',
+          animationDelay: '6s'
+        }}></div>
+        <div className="absolute top-[30%] left-0 w-1 h-1 bg-white rounded-full" style={{ 
+          boxShadow: '0 0 6px 2px rgba(255,255,255,0.8), 0 0 10px 4px rgba(167,243,208,0.5)',
+          animation: 'shooting-star-4 13s linear infinite',
+          animationDelay: '7s'
+        }}></div>
+        <div className="absolute top-[90%] left-0 w-1 h-1 bg-white rounded-full" style={{ 
+          boxShadow: '0 0 6px 2px rgba(255,255,255,0.8), 0 0 10px 4px rgba(251,207,232,0.5)',
+          animation: 'shooting-star-5 9.5s linear infinite',
+          animationDelay: '1s'
         }}></div>
         
         {/* Rare Meteors with long trails */}
