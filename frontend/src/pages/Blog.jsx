@@ -159,7 +159,7 @@ const Blog = () => {
               <>
                 <Button
                   onClick={() => handleOpenDialog()}
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
+                  className="bg-gradient-to-r from-pink-400 to-purple-600 hover:from-pink-500 hover:to-purple-700 text-white"
                 >
                   <Plus className="w-4 h-4 mr-2" />
                   New Post
