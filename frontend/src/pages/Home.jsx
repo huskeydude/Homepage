@@ -211,6 +211,41 @@ const Home = () => {
           borderRadius: '50%',
           animation: 'galaxy-rotate 80s linear infinite reverse'
         }}></div>
+        
+        {/* Minimalist Planets */}
+        {/* Saturn-like planet with ring */}
+        <div className="absolute top-[20%] right-[15%] opacity-40" style={{ animation: 'float-slow 15s ease-in-out infinite' }}>
+          <div className="relative w-16 h-16">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-amber-200/40 to-orange-300/40 blur-sm"></div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-amber-200/60 to-orange-300/60"></div>
+            {/* Ring */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-6 border-2 border-amber-300/30 rounded-full" style={{ transform: 'translate(-50%, -50%) rotateX(75deg)' }}></div>
+          </div>
+        </div>
+        
+        {/* Blue Neptune-like planet */}
+        <div className="absolute bottom-[25%] left-[12%] opacity-35" style={{ animation: 'float-slow 18s ease-in-out infinite', animationDelay: '-5s' }}>
+          <div className="relative w-12 h-12">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-300/40 to-cyan-400/40 blur-sm"></div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-300/60 to-cyan-400/60"></div>
+          </div>
+        </div>
+        
+        {/* Purple planet */}
+        <div className="absolute top-[60%] right-[8%] opacity-30" style={{ animation: 'float-slow 20s ease-in-out infinite', animationDelay: '-10s' }}>
+          <div className="relative w-10 h-10">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-300/40 to-pink-400/40 blur-sm"></div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-300/60 to-pink-400/60"></div>
+          </div>
+        </div>
+        
+        {/* Small teal planet */}
+        <div className="absolute top-[40%] left-[8%] opacity-35" style={{ animation: 'float-slow 16s ease-in-out infinite', animationDelay: '-7s' }}>
+          <div className="relative w-8 h-8">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-teal-300/40 to-emerald-400/40 blur-sm"></div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-teal-300/60 to-emerald-400/60"></div>
+          </div>
+        </div>
       </div>
       
       <div className="max-w-4xl w-full relative z-10">
