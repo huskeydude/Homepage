@@ -42,7 +42,7 @@ const Resume = () => {
 
       {/* Main Content - Full Height */}
       <div className="flex-1 overflow-hidden">
-        <div className="h-full max-w-6xl mx-auto px-6 py-4">
+        <div className="h-full max-w-7xl mx-auto px-6 py-4">
           <Card className="bg-slate-900/85 backdrop-blur-md border-slate-700/50 overflow-hidden h-full flex flex-col">
             {/* Decorative gradient */}
             <div className="h-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 flex-shrink-0"></div>
