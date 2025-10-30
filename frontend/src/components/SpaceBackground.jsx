@@ -63,6 +63,37 @@ const SpaceBackground = () => {
           animationDelay: '2s'
         }}></div>
         
+        {/* Rare Meteors with long trails */}
+        <div className="absolute top-[10%] left-0 w-2 h-2 bg-white rounded-full" style={{ 
+          boxShadow: '0 0 10px 4px rgba(255,255,255,0.9), 0 0 20px 8px rgba(255,150,50,0.6), -40px -20px 60px 10px rgba(255,150,50,0.3)',
+          animation: 'rare-meteor-1 18s linear infinite',
+          animationDelay: '5s'
+        }}></div>
+        <div className="absolute top-[60%] left-0 w-2 h-2 bg-white rounded-full" style={{ 
+          boxShadow: '0 0 10px 4px rgba(255,255,255,0.9), 0 0 20px 8px rgba(100,200,255,0.6), -50px -30px 70px 12px rgba(100,200,255,0.3)',
+          animation: 'rare-meteor-2 22s linear infinite',
+          animationDelay: '12s'
+        }}></div>
+        <div className="absolute top-[35%] left-0 w-2 h-2 bg-white rounded-full" style={{ 
+          boxShadow: '0 0 10px 4px rgba(255,255,255,0.9), 0 0 20px 8px rgba(200,100,255,0.6), -45px -25px 65px 11px rgba(200,100,255,0.3)',
+          animation: 'rare-meteor-3 20s linear infinite',
+          animationDelay: '18s'
+        }}></div>
+        
+        {/* Twinkling Stars scattered across the background */}
+        <div className="absolute top-[15%] left-[20%] w-1 h-1 bg-white rounded-full" style={{ animation: 'twinkle-star 3s ease-in-out infinite' }}></div>
+        <div className="absolute top-[25%] left-[75%] w-1 h-1 bg-white rounded-full" style={{ animation: 'twinkle-star 4s ease-in-out infinite', animationDelay: '1s' }}></div>
+        <div className="absolute top-[45%] left-[15%] w-1 h-1 bg-cyan-300 rounded-full" style={{ animation: 'twinkle-star 3.5s ease-in-out infinite', animationDelay: '0.5s' }}></div>
+        <div className="absolute top-[55%] left-[85%] w-1 h-1 bg-white rounded-full" style={{ animation: 'twinkle-star 4.5s ease-in-out infinite', animationDelay: '2s' }}></div>
+        <div className="absolute top-[70%] left-[30%] w-1 h-1 bg-pink-300 rounded-full" style={{ animation: 'twinkle-star 3.2s ease-in-out infinite', animationDelay: '1.5s' }}></div>
+        <div className="absolute top-[80%] left-[65%] w-1 h-1 bg-white rounded-full" style={{ animation: 'twinkle-star 3.8s ease-in-out infinite', animationDelay: '0.8s' }}></div>
+        <div className="absolute top-[10%] left-[50%] w-1 h-1 bg-purple-300 rounded-full" style={{ animation: 'twinkle-star 4.2s ease-in-out infinite', animationDelay: '2.5s' }}></div>
+        <div className="absolute top-[35%] left-[90%] w-1 h-1 bg-white rounded-full" style={{ animation: 'twinkle-star 3.6s ease-in-out infinite', animationDelay: '1.2s' }}></div>
+        <div className="absolute top-[65%] left-[10%] w-1 h-1 bg-teal-300 rounded-full" style={{ animation: 'twinkle-star 4.8s ease-in-out infinite', animationDelay: '3s' }}></div>
+        <div className="absolute top-[20%] left-[40%] w-1 h-1 bg-white rounded-full" style={{ animation: 'twinkle-star 3.3s ease-in-out infinite', animationDelay: '0.3s' }}></div>
+        <div className="absolute top-[50%] left-[55%] w-1 h-1 bg-white rounded-full" style={{ animation: 'twinkle-star 4.1s ease-in-out infinite', animationDelay: '1.8s' }}></div>
+        <div className="absolute top-[85%] left-[80%] w-1 h-1 bg-blue-300 rounded-full" style={{ animation: 'twinkle-star 3.7s ease-in-out infinite', animationDelay: '2.2s' }}></div>
+        
         {/* Distant Galaxies */}
         <div className="absolute top-20 right-20 w-32 h-32 opacity-30" style={{
           background: 'radial-gradient(ellipse at center, rgba(147,51,234,0.4) 0%, rgba(59,130,246,0.2) 50%, transparent 70%)',
