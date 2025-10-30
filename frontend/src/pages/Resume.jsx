@@ -42,9 +42,9 @@ const Resume = () => {
 
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-6 py-12">
-        <Card className="bg-slate-900/50 border-slate-800 overflow-hidden">
+        <Card className="bg-slate-900/85 backdrop-blur-md border-slate-700/50 overflow-hidden">
           {/* Decorative gradient */}
-          <div className="h-2 bg-gradient-to-r from-orange-500 via-red-500 to-orange-500"></div>
+          <div className="h-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400"></div>
           
           <div className="p-12">
             {/* Resume Preview Section */}
