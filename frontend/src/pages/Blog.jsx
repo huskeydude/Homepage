@@ -220,7 +220,7 @@ const Blog = () => {
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
                     <div className="flex-1">
-                      <h2 className="text-2xl font-semibold text-white mb-2 group-hover:text-purple-400 transition-colors">
+                      <h2 className="text-2xl font-semibold text-white mb-2 group-hover:text-pink-400 transition-colors">
                         {post.title}
                       </h2>
                       <div className="flex items-center gap-4 text-sm text-slate-500">
