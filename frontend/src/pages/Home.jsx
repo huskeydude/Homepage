@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FileText, Globe, BookOpen } from 'lucide-react';
 import { Card } from '../components/ui/card';
 
 const Home = () => {
