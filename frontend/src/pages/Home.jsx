@@ -104,7 +104,7 @@ const Home = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-orange-500 rounded-full blur-2xl opacity-30 animate-pulse"></div>
             {/* Avatar supports PNG, JPG, GIF, and other image formats */}
             <img
-              src="https://cloud.yeksuh.xyz/image/placeholder.png"
+              src="https://shared.akamai.steamstatic.com/community_assets/images/items/2873080/33e549955162361a7684873731207e3cce5d66ad.gif"
               alt="Yeksuh San"
               className="relative w-48 h-48 rounded-full border-4 border-slate-800 shadow-2xl object-cover mx-auto"
             />
