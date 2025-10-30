@@ -290,6 +290,23 @@ const Home = () => {
             <div className="absolute bottom-[15%] left-[15%] w-1.5 h-1.5 bg-blue-300 rounded-full" style={{ animation: 'avatar-sparkle 2.3s ease-in-out infinite', animationDelay: '0.8s', boxShadow: '0 0 4px 1px rgba(147, 197, 253, 0.8)' }}></div>
             <div className="absolute top-[5%] left-[45%] w-1 h-1 bg-white rounded-full" style={{ animation: 'avatar-sparkle 2.6s ease-in-out infinite', animationDelay: '0.3s', boxShadow: '0 0 4px 1px rgba(255, 255, 255, 0.8)' }}></div>
             
+            {/* Particle eruption on hover - hidden by default, visible on group hover */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              {/* Top particles */}
+              <div className="absolute top-0 left-1/2 w-2 h-2 bg-cyan-300 rounded-full" style={{ animation: 'particle-erupt 1.5s ease-out infinite', '--tx': '0px', '--ty': '-60px', boxShadow: '0 0 6px 2px rgba(103, 232, 249, 0.8)' }}></div>
+              <div className="absolute top-[10%] right-[20%] w-1.5 h-1.5 bg-pink-300 rounded-full" style={{ animation: 'particle-erupt 1.5s ease-out infinite', animationDelay: '0.2s', '--tx': '40px', '--ty': '-50px', boxShadow: '0 0 6px 2px rgba(249, 168, 212, 0.8)' }}></div>
+              <div className="absolute top-[10%] left-[20%] w-1.5 h-1.5 bg-purple-300 rounded-full" style={{ animation: 'particle-erupt 1.5s ease-out infinite', animationDelay: '0.4s', '--tx': '-40px', '--ty': '-50px', boxShadow: '0 0 6px 2px rgba(216, 180, 254, 0.8)' }}></div>
+              
+              {/* Side particles */}
+              <div className="absolute top-1/2 right-0 w-1.5 h-1.5 bg-teal-300 rounded-full" style={{ animation: 'particle-erupt 1.5s ease-out infinite', animationDelay: '0.1s', '--tx': '60px', '--ty': '0px', boxShadow: '0 0 6px 2px rgba(94, 234, 212, 0.8)' }}></div>
+              <div className="absolute top-1/2 left-0 w-1.5 h-1.5 bg-blue-300 rounded-full" style={{ animation: 'particle-erupt 1.5s ease-out infinite', animationDelay: '0.3s', '--tx': '-60px', '--ty': '0px', boxShadow: '0 0 6px 2px rgba(147, 197, 253, 0.8)' }}></div>
+              
+              {/* Bottom particles */}
+              <div className="absolute bottom-[10%] right-[25%] w-2 h-2 bg-yellow-300 rounded-full" style={{ animation: 'particle-erupt 1.5s ease-out infinite', animationDelay: '0.5s', '--tx': '35px', '--ty': '55px', boxShadow: '0 0 6px 2px rgba(253, 224, 71, 0.8)' }}></div>
+              <div className="absolute bottom-[10%] left-[25%] w-2 h-2 bg-white rounded-full" style={{ animation: 'particle-erupt 1.5s ease-out infinite', animationDelay: '0.6s', '--tx': '-35px', '--ty': '55px', boxShadow: '0 0 6px 2px rgba(255, 255, 255, 0.8)' }}></div>
+              <div className="absolute bottom-0 left-1/2 w-1.5 h-1.5 bg-orange-300 rounded-full" style={{ animation: 'particle-erupt 1.5s ease-out infinite', animationDelay: '0.15s', '--tx': '0px', '--ty': '60px', boxShadow: '0 0 6px 2px rgba(253, 186, 116, 0.8)' }}></div>
+            </div>
+            
             {/* Avatar supports PNG, JPG, GIF, and other image formats */}
             <img
               src="https://shared.akamai.steamstatic.com/community_assets/images/items/2873080/33e549955162361a7684873731207e3cce5d66ad.gif"
