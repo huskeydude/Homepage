@@ -51,8 +51,19 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center p-6">
-      <div className="max-w-4xl w-full">
+    <div className="min-h-screen relative flex items-center justify-center p-6">
+      {/* Space Background with Overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1570556319136-3cfc640168a4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwxfHxzcGFjZSUyMG5lYnVsYXxlbnwwfHx8YmxhY2t8MTc2MTc5NjIyNnww&ixlib=rb-4.1.0&q=85)'
+        }}
+      >
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/60"></div>
+      </div>
+      
+      <div className="max-w-4xl w-full relative z-10">
         {/* Avatar Section */}
         <div className="text-center mb-12 animate-fade-in">
           <div className="relative inline-block mb-6">
