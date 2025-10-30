@@ -10,14 +10,14 @@ const Resume = () => {
   const resumePdfUrl = '/resume.pdf'; // User will place their PDF here
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="h-screen relative overflow-hidden flex flex-col">
       {/* Space Background */}
       <SpaceBackground />
       
-      <div className="relative z-10">
-      {/* Header */}
-      <div className="border-b border-slate-800 bg-slate-900/70 backdrop-blur-md sticky top-0 z-20">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="relative z-10 flex flex-col h-full">
+      {/* Header - Thinner */}
+      <div className="border-b border-slate-800 bg-slate-900/70 backdrop-blur-md z-20 flex-shrink-0">
+        <div className="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between">
           <Button
             variant="ghost"
             onClick={() => navigate('/')}
@@ -26,7 +26,7 @@ const Resume = () => {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Button>
-          <h1 className="text-xl font-semibold text-white">Resume</h1>
+          <h1 className="text-lg font-semibold text-white">Resume</h1>
           <a
             href={resumePdfUrl}
             download="Yeksuh_San_Resume.pdf"
@@ -40,63 +40,64 @@ const Resume = () => {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <Card className="bg-slate-900/85 backdrop-blur-md border-slate-700/50 overflow-hidden">
-          {/* Decorative gradient */}
-          <div className="h-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400"></div>
-          
-          <div className="p-12">
-            {/* Resume Preview Section */}
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 mb-6">
-                <FileText className="w-10 h-10 text-white" />
-              </div>
-              <h2 className="text-3xl font-light text-white mb-3">Professional Resume</h2>
-              <p className="text-slate-400 max-w-2xl mx-auto">
-                Download my complete resume to learn more about my professional experience, skills, and accomplishments.
-              </p>
-            </div>
-
-            {/* PDF Viewer Placeholder */}
-            <div className="bg-slate-950/50 rounded-lg border border-slate-800 overflow-hidden" style={{ minHeight: '600px' }}>
-              <iframe
-                src={resumePdfUrl}
-                className="w-full h-full"
-                style={{ minHeight: '600px' }}
-                title="Resume PDF"
-              >
-                <div className="flex flex-col items-center justify-center h-full text-slate-400 p-8">
-                  <ExternalLink className="w-12 h-12 mb-4" />
-                  <p className="mb-4">Your browser doesn't support PDF viewing.</p>
-                  <a
-                    href={resumePdfUrl}
-                    download="Yeksuh_San_Resume.pdf"
-                    className="text-orange-500 hover:text-orange-400 underline"
-                  >
-                    Click here to download the PDF instead
-                  </a>
+      {/* Main Content - Full Height */}
+      <div className="flex-1 overflow-hidden">
+        <div className="h-full max-w-6xl mx-auto px-6 py-4">
+          <Card className="bg-slate-900/85 backdrop-blur-md border-slate-700/50 overflow-hidden h-full flex flex-col">
+            {/* Decorative gradient */}
+            <div className="h-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 flex-shrink-0"></div>
+            
+            <div className="p-4 flex-1 flex flex-col overflow-hidden">
+              {/* Resume Preview Section - Compact */}
+              <div className="text-center mb-4 flex-shrink-0">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 mb-2">
+                  <FileText className="w-6 h-6 text-white" />
                 </div>
-              </iframe>
-            </div>
+                <h2 className="text-xl font-light text-white mb-1">Professional Resume</h2>
+                <p className="text-slate-400 text-sm max-w-2xl mx-auto">
+                  Download my complete resume to learn more about my professional experience, skills, and accomplishments.
+                </p>
+              </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <a href={resumePdfUrl} download="Yeksuh_San_Resume.pdf">
-                <Button className="bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-500 hover:to-blue-700 text-white px-8">
-                  <Download className="w-4 h-4 mr-2" />
-                  Download Resume
-                </Button>
-              </a>
-              <a href={resumePdfUrl} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" className="border-slate-700 text-slate-300 hover:bg-slate-800 px-8">
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  Open in New Tab
-                </Button>
-              </a>
+              {/* PDF Viewer - Full Height */}
+              <div className="bg-slate-950/50 rounded-lg border border-slate-800 overflow-hidden flex-1">
+                <iframe
+                  src={resumePdfUrl}
+                  className="w-full h-full"
+                  title="Resume PDF"
+                >
+                  <div className="flex flex-col items-center justify-center h-full text-slate-400 p-8">
+                    <ExternalLink className="w-12 h-12 mb-4" />
+                    <p className="mb-4">Your browser doesn't support PDF viewing.</p>
+                    <a
+                      href={resumePdfUrl}
+                      download="Yeksuh_San_Resume.pdf"
+                      className="text-orange-500 hover:text-orange-400 underline"
+                    >
+                      Click here to download the PDF instead
+                    </a>
+                  </div>
+                </iframe>
+              </div>
+
+              {/* Action Buttons - Compact */}
+              <div className="flex flex-col sm:flex-row gap-3 justify-center mt-4 flex-shrink-0">
+                <a href={resumePdfUrl} download="Yeksuh_San_Resume.pdf">
+                  <Button className="bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-500 hover:to-blue-700 text-white px-6 py-2 text-sm">
+                    <Download className="w-4 h-4 mr-2" />
+                    Download Resume
+                  </Button>
+                </a>
+                <a href={resumePdfUrl} target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" className="border-slate-700 text-slate-300 hover:bg-slate-800 px-6 py-2 text-sm">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Open in New Tab
+                  </Button>
+                </a>
+              </div>
             </div>
-          </div>
-        </Card>
+          </Card>
+        </div>
       </div>
       </div>
     </div>
