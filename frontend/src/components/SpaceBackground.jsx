@@ -118,15 +118,16 @@ const SpaceBackground = () => {
               <div className="absolute top-[50%] left-0 right-0 h-[8%] bg-orange-400/25"></div>
               <div className="absolute top-[68%] left-0 right-0 h-[6%] bg-amber-300/30"></div>
             </div>
-            {/* Main ring system - multiple rings */}
+            {/* Main ring system - thicker and more visible rings */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-6" style={{ transform: 'translate(-50%, -50%) rotateX(75deg)' }}>
-              <div className="absolute inset-0 border-2 border-amber-300/40 rounded-full"></div>
-              <div className="absolute inset-[3px] border border-orange-300/25 rounded-full"></div>
-              <div className="absolute inset-[6px] border border-amber-200/20 rounded-full"></div>
+              <div className="absolute inset-0 border-[3px] border-amber-300/70 rounded-full"></div>
+              <div className="absolute inset-[4px] border-[2px] border-orange-300/60 rounded-full"></div>
+              <div className="absolute inset-[7px] border-[2px] border-amber-200/50 rounded-full"></div>
+              <div className="absolute inset-[10px] border-[2px] border-orange-200/40 rounded-full"></div>
             </div>
             {/* Ring shadow on planet */}
             <div className="absolute inset-0 rounded-full overflow-hidden">
-              <div className="absolute top-[42%] left-[10%] right-[10%] h-[16%] bg-gradient-to-r from-transparent via-black/20 to-transparent"></div>
+              <div className="absolute top-[42%] left-[10%] right-[10%] h-[16%] bg-gradient-to-r from-transparent via-black/25 to-transparent"></div>
             </div>
           </div>
         </div>
