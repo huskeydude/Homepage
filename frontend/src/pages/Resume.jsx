@@ -83,7 +83,7 @@ const Resume = () => {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               <a href={resumePdfUrl} download="Yeksuh_San_Resume.pdf">
-                <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8">
+                <Button className="bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-500 hover:to-blue-700 text-white px-8">
                   <Download className="w-4 h-4 mr-2" />
                   Download Resume
                 </Button>
@@ -97,6 +97,7 @@ const Resume = () => {
             </div>
           </div>
         </Card>
+      </div>
       </div>
     </div>
   );
