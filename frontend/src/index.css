@@ -192,3 +192,17 @@ code {
         transform: rotate(360deg);
     }
 }
+
+/* Blog Post Image Styling */
+.prose img,
+.blog-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 16px 0;
+    display: block;
+}
+
+.prose-invert img {
+    opacity: 0.95;
+}
