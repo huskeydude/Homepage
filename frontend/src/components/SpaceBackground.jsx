@@ -117,27 +117,49 @@ const SpaceBackground = () => {
           </div>
         </div>
         
-        {/* Blue Neptune-like planet */}
+        {/* Jupiter-like planet with bands */}
         <div className="absolute bottom-[25%] left-[12%] opacity-35" style={{ animation: 'float-slow 18s ease-in-out infinite', animationDelay: '-5s' }}>
-          <div className="relative w-12 h-12">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-300/40 to-cyan-400/40 blur-sm"></div>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-300/60 to-cyan-400/60"></div>
+          <div className="relative w-14 h-14">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-300/40 to-red-400/40 blur-sm"></div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-300/60 to-red-400/60"></div>
+            {/* Horizontal bands */}
+            <div className="absolute inset-0 rounded-full overflow-hidden">
+              <div className="absolute top-[25%] left-0 right-0 h-[8%] bg-orange-400/40"></div>
+              <div className="absolute top-[45%] left-0 right-0 h-[10%] bg-red-400/30"></div>
+              <div className="absolute top-[65%] left-0 right-0 h-[8%] bg-orange-300/40"></div>
+            </div>
+            {/* Great Red Spot */}
+            <div className="absolute top-[40%] right-[20%] w-3 h-2 rounded-full bg-red-500/50"></div>
           </div>
         </div>
         
-        {/* Purple planet */}
+        {/* Planet with orbiting moons */}
         <div className="absolute top-[60%] right-[8%] opacity-30" style={{ animation: 'float-slow 20s ease-in-out infinite', animationDelay: '-10s' }}>
-          <div className="relative w-10 h-10">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-300/40 to-pink-400/40 blur-sm"></div>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-300/60 to-pink-400/60"></div>
+          <div className="relative w-12 h-12">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-300/40 to-indigo-400/40 blur-sm"></div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-300/60 to-indigo-400/60"></div>
+            {/* Orbiting moons */}
+            <div className="absolute inset-0" style={{ animation: 'galaxy-rotate 10s linear infinite' }}>
+              <div className="absolute -top-2 left-1/2 -ml-1 w-2 h-2 rounded-full bg-slate-300/60"></div>
+            </div>
+            <div className="absolute inset-0" style={{ animation: 'galaxy-rotate 15s linear infinite reverse' }}>
+              <div className="absolute top-1/2 -right-2 -mt-0.5 w-1.5 h-1.5 rounded-full bg-slate-300/50"></div>
+            </div>
           </div>
         </div>
         
-        {/* Small teal planet */}
+        {/* Crescent planet with shadow */}
         <div className="absolute top-[40%] left-[8%] opacity-35" style={{ animation: 'float-slow 16s ease-in-out infinite', animationDelay: '-7s' }}>
-          <div className="relative w-8 h-8">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-teal-300/40 to-emerald-400/40 blur-sm"></div>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-teal-300/60 to-emerald-400/60"></div>
+          <div className="relative w-11 h-11">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-teal-300/40 to-cyan-400/40 blur-sm"></div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-teal-300/60 to-cyan-400/60"></div>
+            {/* Crescent shadow overlay */}
+            <div className="absolute inset-0 rounded-full overflow-hidden">
+              <div className="absolute -right-1 top-0 bottom-0 w-8 rounded-full bg-gradient-to-l from-black/60 to-transparent"></div>
+            </div>
+            {/* Surface spots/craters */}
+            <div className="absolute top-[30%] left-[25%] w-1.5 h-1.5 rounded-full bg-teal-600/40"></div>
+            <div className="absolute top-[55%] left-[35%] w-1 h-1 rounded-full bg-cyan-600/40"></div>
           </div>
         </div>
       </div>
