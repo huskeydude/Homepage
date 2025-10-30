@@ -107,13 +107,27 @@ const SpaceBackground = () => {
         }}></div>
         
         {/* Minimalist Planets */}
-        {/* Saturn-like planet with ring */}
+        {/* Saturn-like planet with enhanced ring system */}
         <div className="absolute top-[20%] right-[15%] opacity-40" style={{ animation: 'float-slow 15s ease-in-out infinite' }}>
           <div className="relative w-16 h-16">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-amber-200/40 to-orange-300/40 blur-sm"></div>
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-amber-200/60 to-orange-300/60"></div>
-            {/* Ring */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-6 border-2 border-amber-300/30 rounded-full" style={{ transform: 'translate(-50%, -50%) rotateX(75deg)' }}></div>
+            {/* Horizontal bands on surface */}
+            <div className="absolute inset-0 rounded-full overflow-hidden">
+              <div className="absolute top-[30%] left-0 right-0 h-[6%] bg-amber-400/30"></div>
+              <div className="absolute top-[50%] left-0 right-0 h-[8%] bg-orange-400/25"></div>
+              <div className="absolute top-[68%] left-0 right-0 h-[6%] bg-amber-300/30"></div>
+            </div>
+            {/* Main ring system - multiple rings */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-6" style={{ transform: 'translate(-50%, -50%) rotateX(75deg)' }}>
+              <div className="absolute inset-0 border-2 border-amber-300/40 rounded-full"></div>
+              <div className="absolute inset-[3px] border border-orange-300/25 rounded-full"></div>
+              <div className="absolute inset-[6px] border border-amber-200/20 rounded-full"></div>
+            </div>
+            {/* Ring shadow on planet */}
+            <div className="absolute inset-0 rounded-full overflow-hidden">
+              <div className="absolute top-[42%] left-[10%] right-[10%] h-[16%] bg-gradient-to-r from-transparent via-black/20 to-transparent"></div>
+            </div>
           </div>
         </div>
         
