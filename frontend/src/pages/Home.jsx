@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from '../components/ui/card';
+import VisitorGreeting from '../components/VisitorGreeting';
 
 const Home = () => {
   const navigate = useNavigate();
