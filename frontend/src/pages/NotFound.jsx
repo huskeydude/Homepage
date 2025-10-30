@@ -34,15 +34,15 @@ const NotFound = () => {
         <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" style={{ animation: 'pulse 8s ease-in-out infinite' }}></div>
         
-        {/* Shooting stars */}
+        {/* Shooting stars - Reduced */}
         <div className="absolute top-[20%] left-0 w-1 h-1 bg-white rounded-full" style={{ 
           boxShadow: '0 0 6px 2px rgba(255,255,255,0.8), 0 0 10px 4px rgba(0,255,255,0.5)',
-          animation: 'shooting-star-1 8s linear infinite'
+          animation: 'shooting-star-1 10s linear infinite'
         }}></div>
         <div className="absolute top-[60%] left-0 w-1 h-1 bg-white rounded-full" style={{ 
           boxShadow: '0 0 6px 2px rgba(255,255,255,0.8), 0 0 10px 4px rgba(255,105,180,0.5)',
-          animation: 'shooting-star-2 12s linear infinite',
-          animationDelay: '4s'
+          animation: 'shooting-star-2 14s linear infinite',
+          animationDelay: '7s'
         }}></div>
 
         {/* Floating lost astronaut icon */}
