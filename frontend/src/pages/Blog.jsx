@@ -324,7 +324,7 @@ const Blog = () => {
               </Button>
               <Button
                 type="submit"
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
+                className="bg-gradient-to-r from-pink-400 to-purple-600 hover:from-pink-500 hover:to-purple-700 text-white"
               >
                 {editingPost ? 'Update Post' : 'Create Post'}
               </Button>
