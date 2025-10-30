@@ -275,6 +275,7 @@ const Blog = () => {
           </div>
         )}
       </div>
+      </div>
 
       {/* Login Dialog */}
       <LoginDialog open={isLoginOpen} onOpenChange={setIsLoginOpen} />
