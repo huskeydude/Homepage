@@ -133,20 +133,20 @@ const Home = () => {
         <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-purple-500/15 rounded-full blur-3xl" style={{ animation: 'pulse 7s ease-in-out infinite' }}></div>
         <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-teal-500/15 rounded-full blur-3xl" style={{ animation: 'pulse 9s ease-in-out infinite' }}></div>
         
-        {/* Shooting Stars */}
+        {/* Shooting Stars - Slower rate */}
         <div className="absolute top-1/4 left-0 w-1 h-1 bg-white rounded-full" style={{ 
           boxShadow: '0 0 6px 2px rgba(255,255,255,0.8), 0 0 10px 4px rgba(0,255,255,0.5)',
-          animation: 'shooting-star-1 3s linear infinite'
+          animation: 'shooting-star-1 8s linear infinite'
         }}></div>
         <div className="absolute top-1/2 left-0 w-1 h-1 bg-white rounded-full" style={{ 
           boxShadow: '0 0 6px 2px rgba(255,255,255,0.8), 0 0 10px 4px rgba(255,105,180,0.5)',
-          animation: 'shooting-star-2 5s linear infinite',
-          animationDelay: '2s'
+          animation: 'shooting-star-2 12s linear infinite',
+          animationDelay: '4s'
         }}></div>
         <div className="absolute top-3/4 left-0 w-1 h-1 bg-white rounded-full" style={{ 
           boxShadow: '0 0 6px 2px rgba(255,255,255,0.8), 0 0 10px 4px rgba(0,255,200,0.5)',
-          animation: 'shooting-star-3 4s linear infinite',
-          animationDelay: '1s'
+          animation: 'shooting-star-3 10s linear infinite',
+          animationDelay: '2s'
         }}></div>
         
         {/* Distant Galaxies */}
