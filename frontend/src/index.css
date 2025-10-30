@@ -351,6 +351,22 @@ code {
     }
 }
 
+/* Particle eruption on hover */
+@keyframes particle-erupt {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0);
+    }
+    20% {
+        opacity: 1;
+        transform: translate(var(--tx), var(--ty)) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(calc(var(--tx) * 2.5), calc(var(--ty) * 2.5)) scale(0.5);
+    }
+}
+
 /* Floating planet animation */
 @keyframes float-slow {
     0%, 100% {
