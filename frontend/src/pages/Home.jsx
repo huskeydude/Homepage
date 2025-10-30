@@ -251,18 +251,39 @@ const Home = () => {
       <div className="max-w-4xl w-full relative z-10">
         {/* Avatar Section */}
         <div className="text-center mb-12 animate-fade-in">
-          <div className="relative inline-block mb-6">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-pink-500 rounded-full blur-2xl opacity-40 animate-pulse"></div>
+          <div className="relative inline-block mb-6 group">
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-pink-500 rounded-full blur-2xl opacity-40 animate-pulse group-hover:opacity-60 transition-opacity duration-300"></div>
+            
+            {/* Twinkling sparkles around avatar */}
+            <div className="absolute top-[10%] right-[15%] w-1.5 h-1.5 bg-cyan-300 rounded-full" style={{ animation: 'avatar-sparkle 2s ease-in-out infinite', boxShadow: '0 0 4px 1px rgba(103, 232, 249, 0.8)' }}></div>
+            <div className="absolute top-[25%] right-[5%] w-1 h-1 bg-pink-300 rounded-full" style={{ animation: 'avatar-sparkle 2.5s ease-in-out infinite', animationDelay: '0.5s', boxShadow: '0 0 4px 1px rgba(249, 168, 212, 0.8)' }}></div>
+            <div className="absolute bottom-[20%] right-[10%] w-1.5 h-1.5 bg-purple-300 rounded-full" style={{ animation: 'avatar-sparkle 2.2s ease-in-out infinite', animationDelay: '1s', boxShadow: '0 0 4px 1px rgba(216, 180, 254, 0.8)' }}></div>
+            <div className="absolute top-[20%] left-[10%] w-1 h-1 bg-teal-300 rounded-full" style={{ animation: 'avatar-sparkle 2.8s ease-in-out infinite', animationDelay: '1.5s', boxShadow: '0 0 4px 1px rgba(94, 234, 212, 0.8)' }}></div>
+            <div className="absolute bottom-[15%] left-[15%] w-1.5 h-1.5 bg-blue-300 rounded-full" style={{ animation: 'avatar-sparkle 2.3s ease-in-out infinite', animationDelay: '0.8s', boxShadow: '0 0 4px 1px rgba(147, 197, 253, 0.8)' }}></div>
+            <div className="absolute top-[5%] left-[45%] w-1 h-1 bg-white rounded-full" style={{ animation: 'avatar-sparkle 2.6s ease-in-out infinite', animationDelay: '0.3s', boxShadow: '0 0 4px 1px rgba(255, 255, 255, 0.8)' }}></div>
+            
             {/* Avatar supports PNG, JPG, GIF, and other image formats */}
             <img
               src="https://shared.akamai.steamstatic.com/community_assets/images/items/2873080/33e549955162361a7684873731207e3cce5d66ad.gif"
               alt="Yeksuh San"
-              className="relative w-48 h-48 rounded-full border-4 border-cyan-500/30 shadow-2xl object-cover mx-auto"
+              className="relative w-48 h-48 rounded-full border-4 border-cyan-500/30 shadow-2xl object-cover mx-auto transition-all duration-300 group-hover:scale-110 group-hover:border-cyan-400/50 group-hover:shadow-cyan-500/50 group-hover:rotate-3"
             />
           </div>
           <h1 className="text-4xl md:text-5xl font-light text-white mb-2 tracking-tight">
             Yeksuh San's Home Page
           </h1>
+          
+          {/* Currently Working On Section */}
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <div className="px-4 py-2 bg-slate-800/60 backdrop-blur-sm border border-cyan-500/30 rounded-full">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                <span className="text-sm text-slate-300">Currently working on:</span>
+                <span className="text-sm font-medium text-cyan-400">AI Projects & Web Development</span>
+              </div>
+            </div>
+          </div>
+          
           <div className="flex items-center justify-center gap-2 text-slate-400">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
             <span className="text-sm">Available for opportunities</span>
