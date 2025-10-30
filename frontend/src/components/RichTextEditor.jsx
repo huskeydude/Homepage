@@ -32,8 +32,9 @@ const RichTextEditor = ({ value, onChange }) => {
           }
         });
 
+        // Construct proper image URL - response.data.url is already /uploads/filename
         const imageUrl = `${BACKEND_URL}${response.data.url}`;
-        const imageTag = `<img src="${imageUrl}" alt="Uploaded image" style="max-width: 100%; height: auto; margin: 10px 0;" />`;
+        const imageTag = `<img src="${imageUrl}" alt="Uploaded image" class="blog-image" style="max-width: 100%; height: auto; margin: 16px 0; border-radius: 8px;" />`;
         onChange(value + '\n' + imageTag);
       } catch (error) {
         console.error('Error uploading image:', error);
