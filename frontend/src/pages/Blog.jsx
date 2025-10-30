@@ -193,14 +193,14 @@ const Blog = () => {
             <div className="text-slate-400">Loading posts...</div>
           </div>
         ) : posts.length === 0 ? (
-          <Card className="bg-slate-900/50 border-slate-800 p-12 text-center">
+          <Card className="bg-slate-900/85 backdrop-blur-md border-slate-700/50 p-12 text-center">
             <BookOpen className="w-16 h-16 text-slate-600 mx-auto mb-4" />
             <h3 className="text-xl text-slate-400 mb-2">No posts yet</h3>
             <p className="text-slate-500 mb-6">Start sharing your updates and projects</p>
             {isAuthenticated && (
               <Button
                 onClick={() => handleOpenDialog()}
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
+                className="bg-gradient-to-r from-pink-400 to-purple-600 hover:from-pink-500 hover:to-purple-700 text-white"
               >
                 <Plus className="w-4 h-4 mr-2" />
                 Create First Post
@@ -212,10 +212,10 @@ const Blog = () => {
             {posts.map((post) => (
               <Card
                 key={post.id}
-                className="bg-slate-900/50 border-slate-800 hover:border-slate-700 transition-all duration-300 overflow-hidden group"
+                className="bg-slate-900/85 backdrop-blur-md border-slate-700/50 hover:border-slate-600 transition-all duration-300 overflow-hidden group"
               >
                 {/* Gradient accent */}
-                <div className="h-1 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                <div className="h-1 bg-gradient-to-r from-pink-400 to-purple-600"></div>
                 
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
