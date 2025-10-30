@@ -153,7 +153,7 @@ const Blog = () => {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Button>
-          <h1 className="text-xl font-semibold text-white">Blog & Updates</h1>
+          <h1 className="text-xl font-semibold text-white">Blog</h1>
           <div className="flex items-center gap-2">
             {isAuthenticated ? (
               <>
