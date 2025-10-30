@@ -129,7 +129,7 @@ const Home = () => {
               <Card
                 key={index}
                 onClick={() => handleTabClick(tab.path)}
-                className="group relative bg-slate-900/80 backdrop-blur-md border-slate-700/50 hover:border-slate-600 cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl overflow-hidden"
+                className={`group relative bg-slate-900/85 backdrop-blur-md border-slate-700/50 hover:border-slate-500 cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${tab.glow} overflow-hidden`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Gradient overlay on hover */}
