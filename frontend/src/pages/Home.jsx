@@ -66,28 +66,9 @@ const Home = () => {
           <h1 className="text-4xl md:text-5xl font-light text-white mb-2 tracking-tight">
             Yeksuh San's Home Page
           </h1>
-          <div className="flex items-center justify-center gap-2 text-slate-400 mb-4">
+          <div className="flex items-center justify-center gap-2 text-slate-400">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
             <span className="text-sm">Available for opportunities</span>
-          </div>
-          
-          {/* Socials */}
-          <div className="flex items-center justify-center gap-3">
-            {socials.map((social, index) => (
-              <a
-                key={index}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-lg text-slate-400 hover:text-white transition-all duration-300 group"
-                title={social.name}
-              >
-                <span className="group-hover:scale-110 transition-transform duration-300">
-                  {social.icon}
-                </span>
-                <span className="text-sm font-medium">{social.name}</span>
-              </a>
-            ))}
           </div>
         </div>
 
