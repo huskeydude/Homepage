@@ -3,15 +3,20 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Download, ExternalLink } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
+import SpaceBackground from '../components/SpaceBackground';
 
 const Resume = () => {
   const navigate = useNavigate();
   const resumePdfUrl = '/resume.pdf'; // User will place their PDF here
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Space Background */}
+      <SpaceBackground />
+      
+      <div className="relative z-10">
       {/* Header */}
-      <div className="border-b border-slate-800 bg-slate-900/50 backdrop-blur-sm sticky top-0 z-10">
+      <div className="border-b border-slate-800 bg-slate-900/70 backdrop-blur-md sticky top-0 z-20">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Button
             variant="ghost"
