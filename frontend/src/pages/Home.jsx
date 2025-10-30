@@ -269,12 +269,12 @@ const Home = () => {
               className="relative w-48 h-48 rounded-full border-4 border-cyan-500/30 shadow-2xl object-cover mx-auto transition-all duration-300 group-hover:scale-110 group-hover:border-cyan-400/50 group-hover:shadow-cyan-500/50 group-hover:rotate-3"
             />
           </div>
-          <h1 className="text-4xl md:text-5xl font-light text-white mb-2 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-light text-white mb-4 tracking-tight">
             Yeksuh San's Home Page
           </h1>
           
           {/* Currently Working On Section */}
-          <div className="flex items-center justify-center gap-2 mb-3">
+          <div className="flex items-center justify-center gap-2">
             <div className="px-4 py-2 bg-slate-800/60 backdrop-blur-sm border border-cyan-500/30 rounded-full">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
@@ -282,11 +282,6 @@ const Home = () => {
                 <span className="text-sm font-medium text-cyan-400">AI Projects & Web Development</span>
               </div>
             </div>
-          </div>
-          
-          <div className="flex items-center justify-center gap-2 text-slate-400">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-sm">Available for opportunities</span>
           </div>
         </div>
 
