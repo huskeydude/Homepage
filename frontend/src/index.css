@@ -113,3 +113,31 @@ code {
         border-bottom-color: inherit;
     }
 }
+
+/* Space Background Animations */
+@keyframes space-move-1 {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-200px);
+    }
+}
+
+@keyframes space-move-2 {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-250px);
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+}
