@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Resume from './pages/Resume';
 import Blog from './pages/Blog';
+import NotFound from './pages/NotFound';
 import { Toaster } from './components/ui/toaster';
 import { AuthProvider } from './context/AuthContext';
 
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
         <Toaster />
