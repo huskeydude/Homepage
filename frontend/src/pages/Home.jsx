@@ -17,15 +17,15 @@ const Home = () => {
     },
     {
       icon: Globe,
-      title: 'North Tech IT',
-      description: 'Visit my main website',
+      title: 'NorthTech',
+      description: 'IT Solutions Business',
       path: '/northtech',
       gradient: 'from-teal-400 to-purple-600',
       glow: 'group-hover:shadow-teal-500/50'
     },
     {
       icon: BookOpen,
-      title: 'Blog & Updates',
+      title: 'Blog',
       description: 'Latest projects and thoughts',
       path: '/blog',
       gradient: 'from-pink-400 to-purple-600',
