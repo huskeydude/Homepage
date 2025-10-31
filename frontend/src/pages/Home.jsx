@@ -310,7 +310,7 @@ const Home = () => {
             
             {/* Avatar supports PNG, JPG, GIF, and other image formats */}
             <img
-              src="https://shared.akamai.steamstatic.com/community_assets/images/items/2873080/33e549955162361a7684873731207e3cce5d66ad.gif"
+              src="https://usagif.com/wp-content/uploads/gify/20-pikachu-usagif.gif"
               alt="Yeksuh San"
               className="relative w-48 h-48 rounded-full border-4 border-cyan-500/30 shadow-2xl object-cover mx-auto transition-all duration-300 group-hover:scale-110 group-hover:border-cyan-400/50 group-hover:shadow-cyan-500/50 group-hover:rotate-3"
             />
