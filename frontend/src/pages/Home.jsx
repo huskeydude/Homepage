@@ -347,8 +347,8 @@ const Home = () => {
               
               <div className="flex items-center gap-2 relative z-10">
                 <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ boxShadow: '0 0 10px 2px rgba(34, 211, 238, 0.6)' }}></div>
-                <span className="text-sm text-slate-300">Currently working on:</span>
-                <span className="text-sm font-medium text-cyan-400" style={{ textShadow: '0 0 10px rgba(34, 211, 238, 0.5)' }}>NorthTech</span>
+                <span className="text-sm text-slate-300">Actively seeking opportunities</span>
+                <span className="text-sm font-medium text-cyan-400" style={{ textShadow: '0 0 10px rgba(34, 211, 238, 0.5)' }}></span>
               </div>
             </div>
           </div>
