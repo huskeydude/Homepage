@@ -7,7 +7,7 @@ import SpaceBackground from '../components/SpaceBackground';
 
 const Resume = () => {
   const navigate = useNavigate();
-  const resumePdfUrl = '/resume.pdf'; // User will place their PDF here
+  const resumePdfUrl = '/resume.pdf#toolbar=0&navpanes=0&scrollbar=0'; // User will place their PDF here
 
   return (
     <div className="h-screen relative overflow-hidden flex flex-col">
