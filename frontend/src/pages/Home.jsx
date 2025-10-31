@@ -315,9 +315,10 @@ const Home = () => {
               className="relative w-48 h-48 rounded-full border-4 border-cyan-500/30 shadow-2xl object-cover mx-auto transition-all duration-300 group-hover:scale-110 group-hover:border-cyan-400/50 group-hover:shadow-cyan-500/50 group-hover:rotate-3"
             />
           </div>
-          <h1 className="text-4xl md:text-5xl font-light text-white mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-light text-white mb-2 tracking-tight">
             Yeksuh San's Home Page
           </h1>
+          <p className="text-xl text-slate-300 mb-6">Network Engineer</p>
           
           {/* Currently Working On Section */}
           <div className="flex items-center justify-center gap-2 mb-8">
@@ -325,7 +326,7 @@ const Home = () => {
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
                 <span className="text-sm text-slate-300">Currently working on:</span>
-                <span className="text-sm font-medium text-cyan-400">AI Projects & Web Development</span>
+                <span className="text-sm font-medium text-cyan-400">NorthTech</span>
               </div>
             </div>
           </div>
