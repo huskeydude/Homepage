@@ -328,7 +328,7 @@ const Home = () => {
             
             {/* Avatar supports PNG, JPG, GIF, and other image formats */}
             <img
-              src="https://64.media.tumblr.com/8f25401ec17ca36fdc28ac5e5822e4fe/tumblr_oo5h4oM3OR1vk8ilho1_500.gif"
+              src="https://i.pinimg.com/originals/9d/70/19/9d7019904a013ab20ccd7f2bda11e11f.gif"
               alt="YeksuhAvatar"
               className="relative w-48 h-48 rounded-full border-4 border-cyan-500/30 shadow-2xl object-cover mx-auto transition-all duration-300 group-hover:scale-110 group-hover:border-cyan-400/50 group-hover:shadow-cyan-500/50 group-hover:rotate-3"
             />
