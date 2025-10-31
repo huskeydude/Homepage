@@ -340,11 +340,15 @@ const Home = () => {
           
           {/* Currently Working On Section */}
           <div className="flex items-center justify-center gap-2 mb-8">
-            <div className="px-4 py-2 bg-slate-800/60 backdrop-blur-sm border border-cyan-500/30 rounded-full">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+            <div className="relative px-4 py-2 bg-slate-800/60 backdrop-blur-sm border border-cyan-500/30 rounded-full">
+              {/* Pulsing glow effect */}
+              <div className="absolute inset-0 rounded-full bg-cyan-500/20 blur-xl animate-pulse"></div>
+              <div className="absolute inset-0 rounded-full border-2 border-cyan-400/50 animate-pulse" style={{ animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}></div>
+              
+              <div className="flex items-center gap-2 relative z-10">
+                <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ boxShadow: '0 0 10px 2px rgba(34, 211, 238, 0.6)' }}></div>
                 <span className="text-sm text-slate-300">Currently working on:</span>
-                <span className="text-sm font-medium text-cyan-400">NorthTech</span>
+                <span className="text-sm font-medium text-cyan-400" style={{ textShadow: '0 0 10px rgba(34, 211, 238, 0.5)' }}>NorthTech</span>
               </div>
             </div>
           </div>
