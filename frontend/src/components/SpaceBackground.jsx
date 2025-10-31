@@ -4,7 +4,7 @@ const SpaceBackground = () => {
   // Generate random star positions for twinkling stars
   const twinklingStars = useMemo(() => {
     const stars = [];
-    const starCount = 12;
+    const starCount = 15;
     const colors = ['white', 'cyan-300', 'pink-300', 'purple-300', 'teal-300', 'blue-300'];
     
     for (let i = 0; i < starCount; i++) {
