@@ -1,28 +1,46 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 const SpaceBackground = () => {
+  // Generate random star positions for twinkling stars
+  const twinklingStars = useMemo(() => {
+    const stars = [];
+    const starCount = 12;
+    const colors = ['white', 'cyan-300', 'pink-300', 'purple-300', 'teal-300', 'blue-300'];
+    
+    for (let i = 0; i < starCount; i++) {
+      stars.push({
+        top: `${Math.random() * 90 + 5}%`,
+        left: `${Math.random() * 90 + 5}%`,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        animationDuration: `${3 + Math.random() * 2}s`,
+        animationDelay: `${Math.random() * 3}s`
+      });
+    }
+    return stars;
+  }, []);
+
   return (
     <>
       {/* Animated Helix Nebula Space Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-purple-950 to-teal-950">
         {/* Animated stars layer 1 */}
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(2px 2px at 20px 30px, white, transparent),
-                           radial-gradient(2px 2px at 60px 70px, white, transparent),
-                           radial-gradient(1px 1px at 50px 50px, white, transparent),
-                           radial-gradient(1px 1px at 130px 80px, white, transparent),
-                           radial-gradient(2px 2px at 90px 10px, white, transparent)`,
+          backgroundImage: `radial-gradient(2px 2px at ${Math.random() * 200}px ${Math.random() * 200}px, white, transparent),
+                           radial-gradient(2px 2px at ${Math.random() * 200}px ${Math.random() * 200}px, white, transparent),
+                           radial-gradient(1px 1px at ${Math.random() * 200}px ${Math.random() * 200}px, white, transparent),
+                           radial-gradient(1px 1px at ${Math.random() * 200}px ${Math.random() * 200}px, white, transparent),
+                           radial-gradient(2px 2px at ${Math.random() * 200}px ${Math.random() * 200}px, white, transparent)`,
           backgroundSize: '200px 200px',
           animation: 'space-move-1 80s linear infinite'
         }}></div>
         
         {/* Animated stars layer 2 */}
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(1px 1px at 40px 60px, white, transparent),
-                           radial-gradient(1px 1px at 110px 90px, white, transparent),
-                           radial-gradient(2px 2px at 150px 30px, white, transparent),
-                           radial-gradient(1px 1px at 70px 120px, white, transparent),
-                           radial-gradient(1px 1px at 20px 100px, white, transparent)`,
+          backgroundImage: `radial-gradient(1px 1px at ${Math.random() * 250}px ${Math.random() * 250}px, white, transparent),
+                           radial-gradient(1px 1px at ${Math.random() * 250}px ${Math.random() * 250}px, white, transparent),
+                           radial-gradient(2px 2px at ${Math.random() * 250}px ${Math.random() * 250}px, white, transparent),
+                           radial-gradient(1px 1px at ${Math.random() * 250}px ${Math.random() * 250}px, white, transparent),
+                           radial-gradient(1px 1px at ${Math.random() * 250}px ${Math.random() * 250}px, white, transparent)`,
           backgroundSize: '250px 250px',
           animation: 'space-move-2 100s linear infinite'
         }}></div>
