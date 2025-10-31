@@ -329,12 +329,12 @@ const Home = () => {
             {/* Avatar supports PNG, JPG, GIF, and other image formats */}
             <img
               src="https://usagif.com/wp-content/uploads/gify/20-pikachu-usagif.gif"
-              alt="Yeksuh San"
+              alt="YeksuhAvatar"
               className="relative w-48 h-48 rounded-full border-4 border-cyan-500/30 shadow-2xl object-cover mx-auto transition-all duration-300 group-hover:scale-110 group-hover:border-cyan-400/50 group-hover:shadow-cyan-500/50 group-hover:rotate-3"
             />
           </div>
           <h1 className="text-4xl md:text-5xl font-light text-white mb-2 tracking-tight">
-            Yeksuh San's Home Page
+            John Vasko
           </h1>
           <p className="text-xl text-slate-300 mb-6">Network Engineer</p>
           
