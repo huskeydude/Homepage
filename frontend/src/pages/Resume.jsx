@@ -60,7 +60,7 @@ const Resume = () => {
               </div>
 
               {/* PDF Viewer - Full Height */}
-              <div className="bg-slate-950/50 rounded-lg border border-slate-800 overflow-hidden flex-1">
+              <div className="bg-slate-950/50 rounded-lg overflow-hidden flex-1">
                 <iframe
                   src={resumePdfUrl}
                   className="w-full h-full"
