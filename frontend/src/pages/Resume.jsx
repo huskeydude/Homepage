@@ -27,16 +27,7 @@ const Resume = () => {
             Back to Home
           </Button>
           <h1 className="text-lg font-semibold text-white">Resume</h1>
-          <a
-            href={resumePdfUrl}
-            download="Yeksuh_San_Resume.pdf"
-            className="text-slate-400 hover:text-white transition-colors"
-          >
-            <Button variant="ghost" className="text-slate-400 hover:text-white">
-              <Download className="w-4 h-4 mr-2" />
-              Download PDF
-            </Button>
-          </a>
+          <div className="w-32"></div>
         </div>
       </div>
 
