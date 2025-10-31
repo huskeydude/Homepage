@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from '../components/ui/card';
 import VisitorGreeting from '../components/VisitorGreeting';
 
 const Home = () => {
   const navigate = useNavigate();
+
+  // Generate random star positions for twinkling stars
+  const twinklingStars = useMemo(() => {
+    const stars = [];
+    const starCount = 12;
+    const colors = ['white', 'cyan-300', 'pink-300', 'purple-300', 'teal-300', 'blue-300'];
+    
+    for (let i = 0; i < starCount; i++) {
+      stars.push({
+        top: `${Math.random() * 90 + 5}%`,
+        left: `${Math.random() * 90 + 5}%`,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        animationDuration: `${3 + Math.random() * 2}s`,
+        animationDelay: `${Math.random() * 3}s`
+      });
+    }
+    return stars;
+  }, []);
 
   // Custom fancy icon components
   const ResumeIcon = () => (
